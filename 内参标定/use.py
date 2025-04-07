@@ -46,6 +46,13 @@ def undistort_image(image, camera_matrix, dist_coeffs):
 image_path = "./save_20/0.jpg"
 img = cv2.imread(image_path)
 
+#加载标定结果
+# calibration_result = np.load("calibration_result.npz")
+# camera_matrix = calibration_result["camera_matrix_left"]
+# dist_coeffs = calibration_result["distortion_coeffs_left"]
+
+
+
 # 使用之前获得的相机参数
 camera_matrix = np.array([[5.85944013e+03, 0.00000000e+00, 3.12206258e+02],
                          [0.00000000e+00, 6.83849170e+03, 2.41970339e+02],

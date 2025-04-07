@@ -1,7 +1,7 @@
 '''
 Author: wds2dxh wdsnpshy@163.com
 Date: 2025-02-27 00:19:59
-Description: 
+Description:使用保存的图片进行内参标定
 Copyright (c) 2025 by ${wds2dxh}, All Rights Reserved. 
 '''
 import numpy as np
@@ -85,6 +85,10 @@ print(f"\n共成功处理 {len(image_points_left)} 张图片")
 calibration_success, camera_matrix_left, distortion_coeffs_left, rotation_vectors_left, translation_vectors_left = cv2.calibrateCamera(
    object_points_all, image_points_left, (w, h), None, None
 )
+
+# 保存标定结果
+np.savez("calibration_result.npz", camera_matrix_left=camera_matrix_left, distortion_coeffs_left=distortion_coeffs_left)
+
 
 # 打印标定结果
 print("calibration_success", calibration_success)  # 标定是否成功（布尔值）

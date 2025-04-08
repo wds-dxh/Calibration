@@ -133,21 +133,21 @@ if valid_pairs < 3:
 print(f"\n共成功处理 {valid_pairs} 对图像")
 
 # 先分别对左右相机进行单目标定
-# print("\n正在进行左相机单目标定...")
-# ret_left, camera_matrix_left, dist_coeffs_left, rvecs_left, tvecs_left = cv2.calibrateCamera(
-#     object_points_all, image_points_left, (w_left, h_left), None, None
-# )
+print("\n正在进行左相机单目标定...")
+ret_left, camera_matrix_left, dist_coeffs_left, rvecs_left, tvecs_left = cv2.calibrateCamera(
+    object_points_all, image_points_left, (w_left, h_left), None, None
+)
 
-# print("\n正在进行右相机单目标定...")
-# ret_right, camera_matrix_right, dist_coeffs_right, rvecs_right, tvecs_right = cv2.calibrateCamera(
-#     object_points_all, image_points_right, (w_right, h_right), None, None
-# )
+print("\n正在进行右相机单目标定...")
+ret_right, camera_matrix_right, dist_coeffs_right, rvecs_right, tvecs_right = cv2.calibrateCamera(
+    object_points_all, image_points_right, (w_right, h_right), None, None
+)
 
 # 设置为无畸变
-camera_matrix_left = np.eye(3)
-dist_coeffs_left = np.zeros((4, 1))
-camera_matrix_right = np.eye(3)
-dist_coeffs_right = np.zeros((4, 1))
+# camera_matrix_left = np.eye(3)
+# dist_coeffs_left = np.zeros((4, 1))
+# camera_matrix_right = np.eye(3)
+# dist_coeffs_right = np.zeros((4, 1))
 
 print("\n正在进行双目标定...")
 # 双目标定，计算两个相机之间的位置关系
